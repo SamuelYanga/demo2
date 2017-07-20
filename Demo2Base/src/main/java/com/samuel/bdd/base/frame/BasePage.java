@@ -11,16 +11,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-public abstract class AbstractPage {
+public class BasePage {
 
 	protected MyDriver myDriver;
 
 	public final static String TARGET_URL = Configurations.getConfiguration(Constants.SELENIUM_TARGETURL);
 
-	public AbstractPage() {
+	public BasePage() {
 		this.myDriver = DriverFactory.getBrowser();
 		waitPageLoadIdentifier();
 		PageFactory.initElements(new MyElementLocatorFactory(myDriver), this);
@@ -34,13 +36,9 @@ public abstract class AbstractPage {
 		}
 	}
 
-	/**
-	 * Page load identifiers, when these identifiers are loaded, it means the
-	 * page load completely, every page and component must override this method
-	 * 
-	 * @return load identifiers(must be How.ID)
-	 */
-	protected abstract List<String> getLoadIdentifier();
+	protected List<String> getLoadIdentifier() {
+		return Collections.emptyList();
+	}
 
 	public void scrollMoveToElement(WebElement we) {
 		scrollToTop();
@@ -64,8 +62,9 @@ public abstract class AbstractPage {
 		String setscroll = "$(window).scrollTop(" + move + ");";
 		myDriver.executeScript(setscroll);
 	}
-    
-	public static String currentHandle;
+
+	public String currentHandle;
+
 	public boolean switchToWindowByUrl(String windowUrl) {
 		boolean flag = false;
 		try {
@@ -125,7 +124,7 @@ public abstract class AbstractPage {
 			myDriver.switchTo().frame(framId);
 		}
 	}
-	
+
 	public void refreshPage() {
 		myDriver.navigate().refresh();
 	}

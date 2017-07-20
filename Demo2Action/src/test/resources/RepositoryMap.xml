@@ -28,7 +28,7 @@
             <version id="3.0">
                 <bitrate sixtyfourbit="true">
                     <filelocation>http://selenium-release.storage.googleapis.com/3.1/IEDriverServer_x64_3.1.0.zip</filelocation>
-                    <hash>ce718bbf1551829096e0b33b1c40e054e940be27</hash>
+                    <hash>03be761937faa5162c1df1168a7be667a7bd75c1</hash>
                     <hashtype>sha1</hashtype>
                 </bitrate>
                 <bitrate thirtytwobit="true">

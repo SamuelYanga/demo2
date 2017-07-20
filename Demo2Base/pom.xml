@@ -7,11 +7,9 @@
 		<version>1.0</version>
 	</parent>
 
-
 	<groupId>com.samuel</groupId>
 	<artifactId>Demo2Base</artifactId>
 	<name>Demo2Base</name>
-
 
 	<build>
 		<filters>
@@ -55,9 +53,6 @@
 
 		<profile>
 			<id>ie</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<properties>
 				<browser>ie</browser>
 			</properties>
@@ -70,6 +65,9 @@
 		</profile>
 		<profile>
 			<id>chrome</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<properties>
 				<browser>chrome</browser>
 			</properties>

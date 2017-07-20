@@ -12,7 +12,6 @@ import cucumber.api.java.en.Then;
 
 public class A01DemoAction {
 
-
 	@Given("Open the home page.")
 	public void openHomePage() {
 		HomePage.open();
@@ -27,7 +26,7 @@ public class A01DemoAction {
 	@And("Search one product. \"(.*)\"")
 	public void searchProduct(String product) {
 		HomePage homePage = new HomePage();
-		homePage.searchProduct(product);
+		homePage.getHeaderComponent().searchProduct(product);
 	}
 
 	@Then("The product is display on search page. \"(.*)\", \"(.*)\"")
@@ -35,8 +34,8 @@ public class A01DemoAction {
 
 		SearchPage searchPage = new SearchPage();
 		String value = searchPage.getProductNmaeById(product);
-		
+
 		Assert.assertTrue(productName.equals(value));
 	}
-	
+
 }

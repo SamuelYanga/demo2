@@ -6,17 +6,26 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.samuel.bdd.base.frame.CommonPage;
+import com.samuel.bdd.base.frame.BasePage;
 
-public class SearchPage extends CommonPage {
+public class SearchPage extends BasePage {
 
+	// product items
 	public static final String PRODUCT_LIST_CSS = ".product-listing.product-list.grid-view .product-item";
 	@FindBy(css = PRODUCT_LIST_CSS)
 	private List<WebElement> productList;
 
+	// product id of one product item
 	public static final String PRODUCT_ITEM_PROID_CSS = "p.proID span";
+
+	// product title of one product item
 	public static final String PRODUCT_ITEM_PROTITLE_CSS = "a.proTitle";
 
+	/**
+	 * get product element by product id from the product list
+	 * @param product
+	 * @return
+	 */
 	private WebElement getProductById(String product) {
 		for (WebElement element : productList) {
 			WebElement proIdElement = element.findElement(By.cssSelector(PRODUCT_ITEM_PROID_CSS));
@@ -28,10 +37,14 @@ public class SearchPage extends CommonPage {
 		return null;
 	}
 
+	/**
+	 * get the title of product by id
+	 * @param product
+	 * @return
+	 */
 	public String getProductNmaeById(String product) {
 		WebElement productElement = getProductById(product);
 		WebElement proTitleElement = productElement.findElement(By.cssSelector(PRODUCT_ITEM_PROTITLE_CSS));
-//		WebElement proTitleElement = myDriver.findElement(By.cssSelector(".product-listing.product-list.grid-view .product-item a.proTitle"));
 		return proTitleElement.getText();
 	}
 
