@@ -5,7 +5,7 @@ Background:
 	Given Open the home page.
 
 @demoa01
-Scenario Outline: search product
+Scenario Outline: search product, and confirm the product title.
     And Close the register banner.
     And Search one product. "<product>"
     Then The product is display on search page. "<product>", "<productName>"
