@@ -33,6 +33,17 @@ public class ProductDetailPage extends BasePage {
 	public static final String RELATED_PRODUCT_LIST_CSS = ".addToCartComp .js-qty-selector-input";
 	@FindBy(css = RELATED_PRODUCT_LIST_CSS)
 	private List<WebElement> relatedProductList;
+	
+	public boolean checkProductName(String name) {
+		String value = productName.getText();
+		return name.equals(value);
+	}
+	
+	public boolean checkProductPrice(String price) {
+		String value = productPrice.getText();
+		return price.equals(value);
+	}
+	
 
 	public boolean checkProductDetailIsDisplayed() {
 		return productImage.isDisplayed() && productName.isDisplayed() && productPrice.isDisplayed()

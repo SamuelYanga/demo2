@@ -9,7 +9,7 @@ Scenario Outline: Verify the state of the 'Add to Cart' button for selected vari
     And Close the register banner.
     And Search one product. "<product>"
     And Navigate to a PDP page as a guest user. "<product>"
-    Then Verify that the following details of a product are displayed to the Guest user on the PDP.
+    Then Verify that the following details of a product are displayed to the Guest user on the PDP. "<name>" "<price>"
     Examples:
-    |product	|
-    |1244		|
+    |product	|name			|price		|
+    |1244		|蜂蜜卵磷脂粉		|HKD743.00	|

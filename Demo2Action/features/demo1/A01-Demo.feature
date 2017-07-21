@@ -1,4 +1,4 @@
-@all
+@all1
 Feature: A01-Demo
 
 Background:
