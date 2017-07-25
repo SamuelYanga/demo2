@@ -17,7 +17,7 @@ public class A01DemoAction {
 		HomePage.open();
 	}
 
-	// TODO
+	// TODO TODO
 	@And("Close the register banner.")
 	public void closeRegisterBanner() {
 		RegisterBannerComponent registerBannerComponent = new RegisterBannerComponent();
